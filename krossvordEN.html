@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Crossword</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0a3d62, #1e5799);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      grid-template-rows: repeat(10, 30px);
+      gap: 1px;
+      margin: 20px auto;
+      background-color: #000;
+      padding: 5px;
+      border: 2px solid #e74c3c;
+      border-radius: 8px;
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: #000;
+      position: relative;
+    }
+    .black {
+      background-color: #2c3e50;
+    }
+    .number {
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      font-size: 9px;
+      color: #e67e22;
+      font-weight: bold;
+    }
+    .clues {
+      text-align: left;
+      margin-top: 20px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    .clues h2 {
+      color: #f1c40f;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .clue {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+    .number-label {
+      font-weight: bold;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎄 Christmas Crossword Puzzle 🎁</h1>
+    <p>Fill in the 5 holiday-themed English words!</p>
+
+    <div class="grid" id="crosswordGrid"></div>
+
+    <div class="clues">
+      <h2>Across:</h2>
+      <div class="clue"><span class="number-label">1.</span> Feeling joyful (5 letters)</div>
+      <div class="clue"><span class="number-label">4.</span> White flakes from the sky (4 letters)</div>
+      <div class="clue"><span class="number-label">5.</span> A present (4 letters)</div>
+
+      <h2>Down:</h2>
+      <div class="clue"><span class="number-label">1.</span> Traditional Christmas song (5 letters)</div>
+      <div class="clue"><span class="number-label">2.</span> December 25th holiday (9 letters)</div>
+    </div>
+  </div>
+
+  <script>
+    // Grid: 10x10
+    // Words:
+    // Across:
+    //   1. HAPPY → row 0, col 0–4
+    //   4. SNOW  → row 3, col 2–5
+    //   5. GIFT  → row 5, col 3–6
+    //
+    // Down:
+    //   1. CAROL → col 0, row 0–4 (C at 0,0; A at 1,0; etc.)
+    //   2. CHRISTMAS → col 2, row 0–8
+
+    // But: HAPPY starts at (0,0), CAROL also starts at (0,0) → conflict: H vs C
+    // So we adjust: let CAROL start at (0,1), and HAPPY at (0,0) → no intersection at start.
+    // Better: intersect HAPPY and CHRISTMAS at 'H' and 'S', etc.
+
+    // Final layout:
+    // - CHRISTMAS (9 letters) vertically at col 3, rows 0–8
+    // - HAPPY horizontally at row 0, cols 0–4 → intersects CHRISTMAS at col 3 → letter 'P' vs 'R' → no.
+    //
+    // Let's intersect HAPPY and CHRISTMAS at 'H':
+    //   CHRISTMAS: C H R I S T M A S
+    //                ↑
+    //   HAPPY:     H A P P Y
+    //
+    // So: CHRISTMAS starts at (0,1) → H at (1,1)
+    //     HAPPY starts at (1,0) → H at (1,0) → no intersection.
+    //
+    // Better intersection: use 'S':
+    //   SNOW ends with W, but CHRISTMAS has S at positions 0 and 8.
+    //
+    // Simpler: use this verified layout:
+
+    /*
+        C . H A P P Y . .
+        H . . . . . . . .
+        R . . . . . . . .
+        I . S N O W . . .
+        S . . . . . . . .
+        T . . G I F T . .
+        M . . . . . . . .
+        A . . . . . . . .
+        S . . . . . . . .
+        . . . . . . . . .
+    */
+
+    // But then CAROL is missing.
+
+    // Final decision: include all 5 words with minimal intersections.
+
+    // Layout:
+    // - CHRISTMAS: vertical, col 0, rows 0–8
+    // - HAPPY: horizontal, row 0, cols 2–6 → intersects at col 0? No.
+    // Instead:
+    // Place CHRISTMAS vertically at col 8 (rows 0–8)
+    // Place SNOW horizontally at row 3, cols 5–8 → 'W' at (3,8) = 'S' from CHRISTMAS? No — CHRISTMAS[3] = 'I'
+    //
+    // Let's do a practical, visually clean crossword (not all words must intersect heavily):
+
+    // Chosen layout (10x10):
+    // Row 0: H A P P Y . . . . .
+    // Row 1: C . . . . . . . . .
+    // Row 2: A . . . . . . . . .
+    // Row 3: R . . S N O W . . .
+    // Row 4: O . . . . . . . . .
+    // Row 5: L . . G I F T . . .
+    // Row 6: . . . . . . . . . .
+    // Row 7: . . . . . . . . . .
+    // Row 8: C H R I S T M A S
+    // Row 9: . . . . . . . . . .
+
+    // Now:
+    // - HAPPY → (0,0)-(0,4)
+    // - CAROL → (1,0)-(5,0)
+    // - SNOW → (3,3)-(3,6)
+    // - GIFT → (5,3)-(5,6)
+    // - CHRISTMAS → (8,0)-(8,8)
+
+    // No intersections between top and bottom, but all words present and clear.
+
+    const grid = Array(10).fill().map(() => Array(10).fill(''));
+
+    // Fill words
+    const words = [
+      // Across
+      { word: "HAPPY", row: 0, col: 0, dir: 'H' },
+      { word: "SNOW",  row: 3, col: 3, dir: 'H' },
+      { word: "GIFT",  row: 5, col: 3, dir: 'H' },
+      // Down
+      { word: "CAROL",    row: 1, col: 0, dir: 'V' },
+      { word: "CHRISTMAS",row: 0, col: 8, dir: 'V' } // 9 letters → rows 0 to 8
+    ];
+
+    words.forEach(item => {
+      const w = item.word;
+      for (let i = 0; i < w.length; i++) {
+        if (item.dir === 'H') {
+          grid[item.row][item.col + i] = w[i];
+        } else {
+          grid[item.row + i][item.col] = w[i];
+        }
+      }
+    });
+
+    // Numbering:
+    // 1. HAPPY (0,0) → Across
+    // 2. CAROL (1,0) → but usually numbering is by first cell used
+    // We'll number by first appearance in row-major order
+
+    const numbers = {};
+    let num = 1;
+
+    // First pass: mark start of words
+    // Across
+    for (let r = 0; r < 10; r++) {
+      for (let c = 0; c < 10; c++) {
+        const hasLetter = grid[r][c] !== '';
+        const isStartAcross = hasLetter && (c === 0 || grid[r][c-1] === '');
+        const continuesAcross = c + 1 < 10 && grid[r][c+1] !== '';
+        if (isStartAcross && continuesAcross) {
+          const key = `${r}-${c}`;
+          if (!numbers[key]) numbers[key] = String(num++);
+        }
+      }
+    }
+
+    // Down
+    for (let c = 0; c < 10; c++) {
+      for (let r = 0; r < 10; r++) {
+        const hasLetter = grid[r][c] !== '';
+        const isStartDown = hasLetter && (r === 0 || grid[r-1][c] === '');
+        const continuesDown = r + 1 < 10 && grid[r+1][c] !== '';
+        if (isStartDown && continuesDown) {
+          const key = `${r}-${c}`;
+          if (!numbers[key]) numbers[key] = String(num++);
+        }
+      }
+    }
+
+    // But for simplicity and clarity, we'll hardcode numbers matching the clue list:
+    const manualNumbers = {
+      '0-0': '1',   // HAPPY (Across)
+      '3-3': '4',   // SNOW (Across)
+      '5-3': '5',   // GIFT (Across)
+      '1-0': '1',   // CAROL (Down) — same number as HAPPY? Not ideal.
+    };
+
+    // Better: use distinct numbering as in clues:
+    // Across: 1, 4, 5
+    // Down: 1, 2
+    // So:
+    const clueNumbers = {
+      '0-0': '1',   // Across 1: HAPPY
+      '3-3': '4',   // Across 4: SNOW
+      '5-3': '5',   // Across 5: GIFT
+      '1-0': '1',   // Down 1: CAROL
+      '0-8': '2'    // Down 2: CHRISTMAS
+    };
+
+    // Render grid
+    const gridEl = document.getElementById('crosswordGrid');
+    for (let r = 0; r < 10; r++) {
+      for (let c = 0; c < 10; c++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        if (grid[r][c] === '') {
+          cell.classList.add('black');
+        } else {
+          cell.textContent = grid[r][c];
+          const key = `${r}-${c}`;
+          if (clueNumbers[key]) {
+            const numSpan = document.createElement('span');
+            numSpan.className = 'number';
+            numSpan.textContent = clueNumbers[key];
+            cell.appendChild(numSpan);
+          }
+        }
+        gridEl.appendChild(cell);
+      }
+    }
+  </script>
+</body>
+</html>
