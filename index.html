@@ -1,43 +1,178 @@
 <!DOCTYPE html>
-<html lang="ru"
-  <head>
- 
-<title>Привет мир</title>  
-  <link type=“text/css” rel=“stylesheet” href=“style.css” />
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Привет мир</title>
+  <style>
+    /* Подключение шрифта Pudelinko */
+    @font-face {
+      font-family: 'Pudelinko';
+      src: url('Fonts/Pudelinko.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Розовый фон + новогоднее оформление */
+    body {
+      font-family: 'Pudelinko', Arial, sans-serif;
+      background-color: #ffc0cb; /* Нежно-розовый фон */
+      color: #5a0033; /* Тёмно-розовый текст для контраста */
+      padding: 20px;
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Стиль для блоков — с полупрозрачным белым фоном и золотой каймой */
+    h2, p, blockquote, ol {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      border-left: 4px solid #ffd700; /* Золотая полоса */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      color: #d32f91; /* Розово-пурпурная ссылка */
+      text-decoration: underline;
+    }
+
+    /* Стиль для модуля n */
+    pre {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #8b004d;
+      padding: 10px;
+      border-radius: 8px;
+      overflow: auto;
+      max-height: 200px;
+      border: 1px dashed #ffd700;
+    }
+
+    /* Ёлка */
+    .tree {
+      display: block;
+      margin: 20px auto;
+      max-width: 180px;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+    }
+
+    /* Снежинки */
+    .snowflake {
+      position: absolute;
+      color: #ffffff;
+      font-size: 1.4em;
+      text-shadow: 0 0 6px rgba(255, 105, 180, 0.9); /* Розовое свечение */
+      user-select: none;
+      z-index: 1000;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(105vh) rotate(360deg);
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <h2> 17 января , 2025</h2>
-  <p> Апельсин - к=17
-    Абрикос - к=27
-    а. ФХНЗКЧ - ПРИВЕТ К=5 
-    б. ЦЩЕБФ - ВЕСНА  К=20
-    ГУСЕВА- ЮПОШЬШМК (при ключе к=10) 
-  </p>
-  <p><a href="mailto:milanag08@mail.ru">✉️ Написать мне по email</a></p>
-  <p>Иконки:<a target="_blank" href="https://icons8.com/icon/yHeF9urVx2aM/confetti-ball">Новый год</a> иконка от <a target="_blank" href="https://icons8.com">Icons8</a>
-  </p>
-</h2>19.12.2025</h2><vid.mp4="newTree.mp4" 
-<p> 
-  Поздравление с Наступающим Рождеством читайте <a href="Kolyadka.odt"> здесь.</a>
-  </p>
-</h2>13.01.2026</h2><img src=“Icons/icons8-новый-год-96.png” alt=“Новый год”>
-Поздравление с Наступающим 2026 годом читайте <a href=“Congratulations2026.html”> здесь.</a>
-</p>
-</h2>06.12.2025</h2> Доменное имя моего сайта — "Milanix08/dem.github.io"— состоит из нескольких уровней иерархии:
 
-1. **Корневой домен (root)** — обозначается точкой (`.`), обычно не отображается.
-2. **Домен верхнего уровня (TLD — Top-Level Domain)** — `.io`
-3. **Второй уровень (SLD — Second-Level Domain)** — `github`
-4. **Поддомен (Third-Level Domain)** — `milanix08`
-<h2> 15 октября , 2025</h2>
-<p>
-Я сделала Новогодние кроссворды для сайта <a href=“http:// https://lila008-9672413.github.io/dem.github.io/”  title=“Блог моего друга”lila008-9672413.github.io/dem.github.io</a>
-</p>
-<h2> 1 сентября , 2025</h2>
-<blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы) </blockquote>
-<p>
-Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
-</p>
-  </body>
+  <!-- Ёлка -->
+  <img src="Icons/icons8.png" alt="Новогодняя ёлка" class="tree">
+
+  <h2>17 января, 2025</h2>
+  <p>
+    Апельсин - к=17<br>
+    Абрикос - к=27<br>
+    а. ФХНЗКЧ - ПРИВЕТ К=5<br>
+    б. ЦЩЕБФ - ВЕСНА К=20<br>
+    ГУСЕВА- ЮПОШЬШМК (при ключе к=10)
+  </p>
+
+  <h2>20 января, 2026 — RSA шифрование (704-значный модуль)</h2>
+  <p><strong>Исходное сообщение:</strong> "С Новым 2026 годом!"</p>
+  <p><strong>Зашифровано открытым ключом → расшифровано закрытым ключом.</strong></p>
+  <p><strong>Результат расшифровки:</strong> "С Новым 2026 годом!" ✅</p>
+
+  <p><strong>Модуль n (704 десятичных знака):</strong></p>
+  <pre>
+11317016459448397194377538263535229513211222856119491405216281517273273100525431665613263097362093977414422710118669492910147703268854377976631111826446131065837391405026197428897235561822111064974823200742207600221729783095759860918664769861884204153629160672741080392989075338464772429558040515214640163030432626233279743039711911043715224899402621505137102594518925128134428588807642584325436808122024619772550145672944146436074727809309488253563003991389396194976224660043917579193709878353304804798895973724780203722146210025655872493881382643719450288836907629295036666210545355498025092976879542207210576716495967278890650651076413105168032549949035294182494112357056274349959113090920030086400937
+  </pre>
+
+  <p><a href="mailto:milanag08@mail.ru">✉️ Написать мне по email</a></p>
+  <p>
+    Иконки:
+    <a target="_blank" href="https://icons8.com/icon/yHeF9urVx2aM/confetti-ball">Новый год</a> иконка от
+    <a target="_blank" href="https://icons8.com">Icons8</a>
+  </p>
+
+  <h2>19.12.2025</h2>
+  <video controls width="400">
+    <source src="newTree.mp4" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+  </video>
+  <p>Поздравление с Наступающим Рождеством читайте <a href="Kolyadka.odt">здесь</a>.</p>
+
+  <h2>13.01.2026</h2>
+  <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
+
+  <h2>06.12.2025</h2>
+  <p>Доменное имя моего сайта — "milanix08/dem.github.io" — состоит из нескольких уровней иерархии:</p>
+  <ol>
+    <li><strong>Корневой домен (root)</strong> — обозначается точкой (<code>.</code>), обычно не отображается.</li>
+    <li><strong>Домен верхнего уровня (TLD)</strong> — <code>.io</code></li>
+    <li><strong>Второй уровень (SLD)</strong> — <code>github</code></li>
+    <li><strong>Поддомен</strong> — <code>milanix08</code></li>
+  </ol>
+
+  <h2>15 октября, 2025</h2>
+  <p>
+    Я сделала Новогодние кроссворды для сайта
+    <a href="https://lila008-9672413.github.io/dem.github.io/" title="Блог моего друга">
+      lila008-9672413.github.io/dem.github.io
+    </a>
+  </p>
+
+  <h2>1 сентября, 2025</h2>
+  <blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+
+  <!-- Скрипты: салют и снежинки -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    // Салют при загрузке — розовые, белые и золотые частицы
+    window.addEventListener('load', () => {
+      confetti({
+        particleCount: 130,
+        spread: 75,
+        origin: { y: 0.6 },
+        colors: ['#ff69b4', '#ffffff', '#ffd700', '#ff1493', '#ffb6c1']
+      });
+    });
+
+    // Снежинки
+    function createSnowflakes() {
+      const container = document.body;
+      const flakes = ['❄', '❅', '❆'];
+      const count = 50;
+
+      for (let i = 0; i < count; i++) {
+        const snow = document.createElement('div');
+        snow.innerHTML = flakes[Math.floor(Math.random() * flakes.length)];
+        snow.className = 'snowflake';
+        snow.style.left = Math.random() * 100 + 'vw';
+        snow.style.opacity = Math.random() * 0.7 + 0.3;
+        snow.style.fontSize = (Math.random() * 12 + 10) + 'px';
+        snow.style.animationDuration = (Math.random() * 6 + 4) + 's';
+        snow.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(snow);
+      }
+    }
+
+    createSnowflakes();
+  </script>
+</body>
 </html>
