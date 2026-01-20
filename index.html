@@ -5,24 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Привет мир</title>
   <style>
-    /* Подключение шрифта Pudelinko */
+    /* Подключение шрифта Pudelinko — с несколькими форматами для надёжности */
     @font-face {
       font-family: 'Pudelinko';
-      src: url('Fonts/Pudelinko.ttf') format('truetype');
+      src: url('Fonts/Pudelinko.woff2') format('woff2'),
+           url('Fonts/Pudelinko.woff') format('woff'),
+           url('Fonts/Pudelinko.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
+      font-display: swap; /* Позволяет тексту отображаться сразу, даже если шрифт ещё грузится */
     }
 
     /* Розовый фон + новогоднее оформление */
     body {
-      font-family: 'Pudelinko', Arial, sans-serif;
+      font-family: 'Pudelinko', 'Comic Sans MS', cursive, sans-serif; /* Яркий fallback */
       background-color: #ffc0cb; /* Нежно-розовый фон */
-      color: #5a0033; /* Тёмно-розовый текст для контраста */
+      color: #5a0033; /* Тёмно-розовый текст */
       padding: 20px;
       margin: 0;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+      font-size: 1.2em; /* Увеличим размер, чтобы шрифт "играл" */
     }
 
     /* Стиль для блоков — с полупрозрачным белым фоном и золотой каймой */
@@ -33,14 +37,20 @@
       margin-bottom: 16px;
       border-left: 4px solid #ffd700; /* Золотая полоса */
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-size: 1.1em; /* Чтобы текст внутри тоже был крупным */
+    }
+
+    h2 {
+      font-size: 1.5em;
+      text-align: center;
+      color: #d32f91;
     }
 
     a {
-      color: #d32f91; /* Розово-пурпурная ссылка */
+      color: #d32f91;
       text-decoration: underline;
     }
 
-    /* Стиль для модуля n */
     pre {
       font-family: 'Courier New', monospace;
       font-size: 10px;
@@ -53,7 +63,6 @@
       border: 1px dashed #ffd700;
     }
 
-    /* Ёлка */
     .tree {
       display: block;
       margin: 20px auto;
@@ -61,12 +70,11 @@
       filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
     }
 
-    /* Снежинки */
     .snowflake {
       position: absolute;
       color: #ffffff;
       font-size: 1.4em;
-      text-shadow: 0 0 6px rgba(255, 105, 180, 0.9); /* Розовое свечение */
+      text-shadow: 0 0 6px rgba(255, 105, 180, 0.9);
       user-select: none;
       z-index: 1000;
       animation: fall linear infinite;
@@ -143,7 +151,6 @@
   <!-- Скрипты: салют и снежинки -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <script>
-    // Салют при загрузке — розовые, белые и золотые частицы
     window.addEventListener('load', () => {
       confetti({
         particleCount: 130,
@@ -153,7 +160,6 @@
       });
     });
 
-    // Снежинки
     function createSnowflakes() {
       const container = document.body;
       const flakes = ['❄', '❅', '❆'];
