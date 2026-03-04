@@ -1,198 +1,108 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Привет мир</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>МОЙ БЛОГ</title>
   <style>
-  
-    /* Розовый фон + новогоднее оформление */
+
     body {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      background-color: #ffc0cb; /* Нежно-розовый фон */
-      color: #5a0033; /* Тёмно-розовый текст */
+      font-family: 'Times New Rowan', cursive, sans-serif;
+      background-color: #fff9f0;
+      color: #2e1a0f;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
       padding: 20px;
-      margin: 0;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-      font-size: 1.2em; /* Увеличим размер, чтобы шрифт "играл" */
     }
-
-    /* Стиль для блоков — с полупрозрачным белым фоном и золотой каймой */
-    h2, p, blockquote, ol {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 12px;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      border-left: 4px solid #ffd700; /* Золотая полоса */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      font-size: 1.1em; /* Чтобы текст внутри тоже был крупным */
+    h1, h2 {
+      color: #c13e3e;
     }
-
-    h2 {
-      font-size: 1.5em;
-      text-align: center;
-      color: #d32f91;
+    blockquote.q, blockquote {
+      background-color: #ffe0b2;
+      border-left: 4px solid #ff7043;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-style: italic;
     }
-
     a {
-      color: #d32f91;
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    a:hover {
       text-decoration: underline;
     }
-
-    pre {
-      font-family: 'Courier New', monospace;
-      font-size: 10px;
-      background: rgba(255, 255, 255, 0.9);
-      color: #8b004d;
-      padding: 10px;
-      border-radius: 8px;
-      overflow: auto;
-      max-height: 200px;
-      border: 1px dashed #ffd700;
-    }
-
-    .tree {
+    img {
+      max-width: 100px;
+      height: auto;
+      margin: 10px 0;
       display: block;
-      margin: 20px auto;
-      max-width: 180px;
-      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
     }
 
-    .snowflake {
-      position: absolute;
-      color: #ffffff;
-      font-size: 1.4em;
-      text-shadow: 0 0 6px rgba(255, 105, 180, 0.9);
-      user-select: none;
-      z-index: 1000;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(105vh) rotate(360deg);
-      }
+    .media-box {
+      background-color: #f5f5f5;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 16px 0;
     }
   </style>
 </head>
 <body>
-  <link type="text/css" rel="stylesheet" href="style.css" />
-<style>
+  <h1>МОЙ БЛОГ</h1>
+  <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+  <p><a href="mailto:dashasambe@gmail.com">Напишите мне</a></p>
+  
+  <p> <h2>24 февраля, 2026</h2>
+    <p>Ответ модели</p>
+<p> Вопрос пользователя: Сколько ждать мой заказ?</p>
+<p>Найден FAQ-вопрос: Как быстро доставляется заказ? (sim=0.706)</p>
+<p>Ответ бот-FAQ: Наш стандартный срок доставки — 3–5 рабочих дней.</p>
+ <p> Вопрос пользователя: Сколько ждать мой заказ?</p>
+ <p>Найден FAQ-вопрос: Как оплатить заказ? (sim=0.719)</p>
+ <p>Ответ бот-FAQ: Оплата возможна картой онлайн, при получении или по счёту для юрлиц.</p>
+ 
+    <p> <h2>18 февраля, 2026</h2>
+    <p>Ответ модели</p>
+    <p>Топ-3 предсказаний:</p>
+    <p>Egyptian Mau: 54.36%</p>
+    <p>Tabby cat: 14.29%</p>
+    <p>Lynx: 6.31%</p>
+   
+  <h2>20 января, 2026</h2>
+  <p>Открытый ключ: (e = 3, n = 33)</p>
+  <p>Закрытый ключ: (d = 7, n = 33)</p>
+  <p>реальное n=15234789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567......</p>
 
-  <!-- Ёлка -->
-  <img src="Icons/icons8.png" alt="Новогодняя ёлка" class="tree">
-  <h2>24 февраля, 2026/h2>
-  <p>Вопрос пользователя: Сколько ждать мой заказ?
-Найден FAQ-вопрос: Как быстро доставляется заказ? (sim=0.706)
-Ответ бот-FAQ: Наш стандартный срок доставки — 3–5 рабочих дней.
-    </p>
+  <h2>17 января, 2026</h2>
+  <p>Открытый текст АПЕЛЬСИН — шифротекст САЦЬНВЩЮ k=17</p>
+  <p>Открытый текст АБРИКОС — шифротекст ЫЬЛГЕЙМ k=27</p>
+  <p>ФХНЗКЧ — ПРИВЕТ k=5</p>
+  <p>ЦЩЕБФ — ВЕСНА k=20</p>
+  <p>Открытый текст ГУСЕВА — шифротекст ЮПОШЬШМК k=10</p>
 
-   <h2>18 февраля, 2026/h2>
-  <p>Ответ модели:Топ-3 предсказаний:
-    pug:96.40%
-    Griffon Bruxellois:1.64%
-    Bullmastiff:0.98%
-    </p>
+  <h2>13 января, 2026</h2>
+  <h1>Домен</h1>
+  <p>Домен <code>milanix08.github.io</code> состоит из: корневого домена (<code>.</code>, не отображается), домена верхнего уровня <code>.io</code>, домена второго уровня <code>github.io</code> и поддомена третьего уровня <code>dashasambe</code>. Часть <code>/dem.github.io/</code> — это путь, а не домен.</p>
 
-  <h2>17 января, 2025</h2>
+  <h2>19 декабря, 2025</h2>
+  <p><a href="колядка.docx" download>Поздравление с Рождеством 2026 (Скачать колядку)</a></p>
+  <p><a href="019b3566-7af8-7063-a910-99155174b5cd.mp4" target="_blank">Поздравление с Рождеством 2026</a></p>
   <p>
-    Апельсин - к=17<br>
-    Абрикос - к=27<br>
-    а. ФХНЗКЧ - ПРИВЕТ К=5<br>
-    б. ЦЩЕБФ - ВЕСНА К=20<br>
-    ГУСЕВА- ЮПОШЬШМК (при ключе к=10)
+    <video src="019b3566-7af8-7063-a910-99155174b5cd.mp4" width="640" controls>
+      <a href="019b3566-7af8-7063-a910-99155174b5cd.mp4">Поздравление с Рождеством 2026</a>.
+    </video>
   </p>
 
-  <h2>20 января, 2026 — RSA шифрование (704-значный модуль)</h2>
-  <p><strong>Исходное сообщение:</strong> "С Новым 2026 годом!"</p>
-  <p><strong>Зашифровано открытым ключом → расшифровано закрытым ключом.</strong></p>
-  <p><strong>Результат расшифровки:</strong> "С Новым 2026 годом!" ✅</p>
- <div style="background: rgba(255, 255, 255, 0.9); padding: 16px; border-radius: 12px; border-left: 4px solid #ffd700; margin-bottom: 20px; font-size: 1.1em;">
-  <strong>Ключи готовы!</strong><br><br>
-  • Открытый ключ: <strong>(n, e) = (55, 3)</strong> → им шифруют<br>
-  • Закрытый ключ: <strong>(n, d) = (55, 27)</strong> → им расшифровывают ✅
-</div>
-
-<p><em>💡 Видите? Теперь <code>e = 3</code>, а <code>d = 27</code> — они разные! Это типичная ситуация в реальных системах.</em></p>
-
-
-<p><em>💡 Видите? Теперь <code>e = 3</code>, а <code>d = 27</code> — они разные! Это типичная ситуация в реальных системах.</em></p>
-
-  <p><strong>Модуль n (704 десятичных знака):</strong></p>
-  <pre>
-11317016459448397194377538263535229513211222856119491405216281517273273100525431665613263097362093977414422710118669492910147703268854377976631111826446131065837391405026197428897235561822111064974823200742207600221729783095759860918664769861884204153629160672741080392989075338464772429558040515214640163030432626233279743039711911043715224899402621505137102594518925128134428588807642584325436808122024619772550145672944146436074727809309488253563003991389396194976224660043917579193709878353304804798895973724780203722146210025655872493881382643719450288836907629295036666210545355498025092976879542207210576716495967278890650651076413105168032549949035294182494112357056274349959113090920030086400937
-  </pre>
-
-  <p><a href="mailto:milanag08@mail.ru">✉️ Написать мне по email</a></p>
-  <p>
-    Иконки:
-    <a target="_blank" href="https://icons8.com/icon/yHeF9urVx2aM/confetti-ball">Новый год</a> иконка от
-    <a target="_blank" href="https://icons8.com">Icons8</a>
-  </p>
-
-  <h2>19.12.2025</h2>
-  <video controls width="400">
-    <source src="newTree.mp4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-  </video>
-  <p>Поздравление с Наступающим Рождеством читайте <a href="Kolyadka.odt">здесь</a>.</p>
-
-  <h2>13.01.2026</h2>
+  <h2>6 декабря, 2025</h2>
+  <img src="Icons/icons8-новый-год-96.png" alt="Новый год">
   <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
 
-  <h2>06.12.2025</h2>
-  <p>Доменное имя моего сайта — "milanix08/dem.github.io" — состоит из нескольких уровней иерархии:</p>
-  <ol>
-    <li><strong>Корневой домен (root)</strong> — обозначается точкой (<code>.</code>), обычно не отображается.</li>
-    <li><strong>Домен верхнего уровня (TLD)</strong> — <code>.io</code></li>
-    <li><strong>Второй уровень (SLD)</strong> — <code>github</code></li>
-    <li><strong>Поддомен</strong> — <code>milanix08</code></li>
-  </ol>
-
   <h2>15 октября, 2025</h2>
-  <p>
-    Я сделала Новогодние кроссворды для сайта
-    <a href="https://lila008-9672413.github.io/dem.github.io/" title="Блог моего друга">
-      lila008-9672413.github.io/dem.github.io
-    </a>
-  </p>
+  <p>Я сделала Новогодние кроссворды для сайта <a href="http://адрес-сайта-друга" title="Блог моего друга">Сайт моего друга</a>.</p>
 
   <h2>1 сентября, 2025</h2>
   <blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
 
-  <!-- Скрипты: салют и снежинки -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-  <script>
-    window.addEventListener('load', () => {
-      confetti({
-        particleCount: 130,
-        spread: 75,
-        origin: { y: 0.6 },
-        colors: ['#ff69b4', '#ffffff', '#ffd700', '#ff1493', '#ffb6c1']
-      });
-    });
-
-    function createSnowflakes() {
-      const container = document.body;
-      const flakes = ['❄', '❅', '❆'];
-      const count = 50;
-
-      for (let i = 0; i < count; i++) {
-        const snow = document.createElement('div');
-        snow.innerHTML = flakes[Math.floor(Math.random() * flakes.length)];
-        snow.className = 'snowflake';
-        snow.style.left = Math.random() * 100 + 'vw';
-        snow.style.opacity = Math.random() * 0.7 + 0.3;
-        snow.style.fontSize = (Math.random() * 12 + 10) + 'px';
-        snow.style.animationDuration = (Math.random() * 6 + 4) + 's';
-        snow.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(snow);
-      }
-    }
-
-    createSnowflakes();
-  </script>
-</body>
-</html>
+  <footer>
+    <p>Иконки:
+      <a target="_blank" href="https://icons8.
